@@ -27,6 +27,14 @@ CLASS_NAMES = [
     "Spotted soybeans"
 ]
 
+SEED_NATURE = {
+    "Broken soybeans": "Physically Damaged Seed",
+    "Immature soybeans": "Immature / Developing Seed",
+    "Intact soybeans": "Healthy / Intact Seed",
+    "Skin-damaged soybeans": "Skin-Damaged Seed",
+    "Spotted soybeans": "Spotted / Defected Seed"
+}
+
 
 # =========================================================
 # LOAD TRAINED MODEL
@@ -231,3 +239,10 @@ if image is not None:
             st.progress(
                 float(probability)
             )
+
+        st.divider()
+        st.subheader("🌱 Final Seed Quality Assessment")
+
+        seed_nature = SEED_NATURE[predicted_class]
+
+        st.success(f"Seed Nature: {seed_nature}")
